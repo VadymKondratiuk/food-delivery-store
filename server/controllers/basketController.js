@@ -13,7 +13,7 @@ class BasketController {
         }
     }
 
-    async getForUser(req, res) {
+    async getForUser(req, res, next) {
         try {
             const {basketId} = req.params
             const basket_item = await BasketItem.findAll(
@@ -32,7 +32,7 @@ class BasketController {
         }
     }
 
-    async delete(req, res) {
+    async delete(req, res, next) {
         try {
             const {id} = req.params
             const basket_item = await BasketItem.findByPk(id)
@@ -49,7 +49,7 @@ class BasketController {
         }
     }
 
-    async deleteForUser(req, res) {
+    async deleteForUser(req, res, next) {
         try {
             const {basketId} = req.params
             const basket_items = await BasketItem.findAll(

@@ -13,27 +13,16 @@ class OrderController {
         }
         catch(err) {
             next(ApiError.badRequest(err.message))
-
         }
     }   
 
-    async getAll(req, res) {
-        const orders = await Order.findAll()
-
-        if(!orders || orders.length === 0) {
-            return res.status(404).json({ message: 'Замовлення не знайдені' });
-        }
-
-        return res.json(orders)
-    }
-
-    async getAllActive(req, res) {
+    async getAll(req, res, next) {
         try {
-            const orders = await Order.findAll({where: {status: {[Op.ne]: "ЗАВЕРШЕНЕ"}}})
+            const orders = await Order.findAll()
     
-            // if(!orders || orders.length === 0) {
-            //     return res.status(404).json({ message: 'Замовлення не знайдені' });
-            // }
+            if(!orders || orders.length === 0) {
+                return res.status(404).json({ message: 'Замовлення не знайдені' });
+            }
     
             return res.json(orders)
         }
@@ -42,7 +31,18 @@ class OrderController {
         }
     }
 
-    async update(req, res) {
+    async getAllActive(req, res, next) {
+        try {
+            const orders = await Order.findAll({where: {status: {[Op.ne]: "ЗАВЕРШЕНЕ"}}})
+
+            return res.json(orders)
+        }
+        catch(err) {
+            next(ApiError.badRequest(err.message))
+        }
+    }
+
+    async update(req, res, next) {
         try {
             const {id} = req.params
             const {status, address, items, userId} = req.body
@@ -66,7 +66,7 @@ class OrderController {
         }
     }
 
-    async updateStatus(req, res) {
+    async updateStatus(req, res, next) {
         try {
             const {id} = req.params
             const {status} = req.body
@@ -87,7 +87,7 @@ class OrderController {
         }
     }
 
-    async delete(req, res) {
+    async delete(req, res, next) {
         try {
             const {id} = req.params
             const order = await Order.findByPk(id)
