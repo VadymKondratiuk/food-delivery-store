@@ -1,1 +1,8 @@
-# food-delivery-store
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/96d7116e-bf60-4560-8186-a911768e8e43)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/b20933ea-bb8a-4b22-b28d-d9891851fd76)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/59be1908-9581-4a02-8f24-9805e81fd8ff)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/4ca07741-60de-4722-b679-a8e9eec51c10)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/7ecec17c-7013-4582-b906-df0b91d63274)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/d181d1e8-e345-4057-bc59-bca5ae14475f)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/c33cb11b-50fd-4a5e-b770-520617ed117c)
+![image](https://github.com/VadymKondratiuk/food-delivery-store/assets/115881938/0f0a75bd-38b0-468f-b9ca-93ae1230692c)
