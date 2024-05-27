@@ -4,7 +4,12 @@ import OrderItemElement from './orderItemElement';
 
 const OrderItemList = observer(({order}) => {
     return (
-        <div style={{height: 200, overflow: 'auto'}}>
+        <div 
+            style={{
+                height: 200, 
+                overflow: 'auto'
+            }}
+        >
             {order.items.map(item =>
                 <OrderItemElement key={item.id} item={item}/>
             )}

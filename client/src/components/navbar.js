@@ -10,28 +10,28 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const NavBar = observer(() => {
-  const { user } = useContext(Context)
-  const navigate = useNavigate()
-  let isAdmin = false;
+    const { user } = useContext(Context)
+    const navigate = useNavigate()
+    let isAdmin = false;
 
-  if(user.isAuth){
-    isAdmin = jwtDecode(localStorage.getItem('token')).role === "ADMIN"
-  }
+    if(user.isAuth){
+      isAdmin = jwtDecode(localStorage.getItem('token')).role === "ADMIN"
+    }
 
-  const logout = () => {
-    user.setUser({})
-    user.setIsAuth(false)
-    localStorage.clear()
-    navigate(SHOP_ROUTE)
-    toast.success('Вихід виконано!', {
-      position: "bottom-right",
-      autoClose: 2000,
-      theme: "light",
-    });
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000)
-  }
+    const logout = () => {
+      user.setUser({})
+      user.setIsAuth(false)
+      localStorage.clear()
+      navigate(SHOP_ROUTE)
+      toast.success('Вихід виконано!', {
+        position: "bottom-right",
+        autoClose: 2000,
+        theme: "light",
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000)
+    }
 
   return (
     <div>

@@ -7,6 +7,7 @@ import {observer} from "mobx-react-lite";
 
 const DeleteType = observer(({show, onHide}) => {
     const {item} = useContext(Context)
+
     useEffect(() => {
         fetchTypes().then(data => item.setTypes(data))
     }, [])
@@ -28,7 +29,7 @@ const DeleteType = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Видалити категорію
                 </Modal.Title>
@@ -51,8 +52,18 @@ const DeleteType = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={removeType}>Видалити</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={removeType}
+                >
+                    Видалити
+                </Button>
             </Modal.Footer>
         </Modal>
     );

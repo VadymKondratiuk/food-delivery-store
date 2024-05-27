@@ -35,7 +35,7 @@ const UpdateType = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Оновити категорію
                 </Modal.Title>
@@ -70,8 +70,18 @@ const UpdateType = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={putType}>Оновити</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={putType}
+                >
+                    Оновити
+                </Button>
             </Modal.Footer>
         </Modal>
     );

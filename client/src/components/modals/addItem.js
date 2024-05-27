@@ -23,6 +23,7 @@ const AddItem = observer(({show, onHide}) => {
 
     const addItem = () => {
         const formData = new FormData()
+
         formData.append('name', name)
         formData.append('description', description)
         formData.append('price', `${price}`)
@@ -30,8 +31,8 @@ const AddItem = observer(({show, onHide}) => {
         formData.append('typeId', item.selectedType.id)
         createItem(formData).then(data => {
             onHide()
+            window.location.reload()
         })
-        window.location.reload()
     }
 
     return (
@@ -40,7 +41,7 @@ const AddItem = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >   
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Додати позицію
                 </Modal.Title>
@@ -87,8 +88,18 @@ const AddItem = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={addItem}>Додати</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={addItem}
+                >
+                    Додати
+                </Button>
             </Modal.Footer>
         </Modal>
     );

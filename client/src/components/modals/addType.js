@@ -18,9 +18,8 @@ const AddType = observer(({show, onHide}) => {
         formData.append('img', file)
         createType(formData).then(data => {
             onHide()
+            window.location.reload()
         })
-        window.location.reload()
-
     }
 
     return (
@@ -29,7 +28,7 @@ const AddType = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Додати категорію
                 </Modal.Title>
@@ -41,17 +40,29 @@ const AddType = observer(({show, onHide}) => {
                         onChange={e => setName(e.target.value)}
                         className="mt-3"
                         placeholder="Введіть назву"
+                        required={true}
                     />
                     <Form.Control
                         className="mt-3"
                         type="file"
                         onChange={selectFile}
+                        required
                     />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={addType}>Додати</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={addType}
+                >
+                    Додати
+                </Button>
             </Modal.Footer>
         </Modal>
     );

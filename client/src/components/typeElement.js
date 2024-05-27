@@ -16,6 +16,7 @@ const TypeElement = ({type}) => {
             onClick={() => {
                 navigate(TYPE_ROUTE + '/' + type.id)
                 item.setSelectedType(type)
+                item.setPage(1)
             }}
         >
             <Card 
@@ -23,7 +24,11 @@ const TypeElement = ({type}) => {
                 style={{color: '#000', height: 130, width: 170, cursor: 'pointer', borderRadius: 20}} 
                 border={'light'}
             >
-                <Image width={80} height={80} src={process.env.REACT_APP_API_URL + type.img}/>
+                <Image 
+                    width={80} 
+                    height={80} 
+                    src={process.env.REACT_APP_API_URL + type.img}
+                />
                 <div>{type.name}</div>
             </Card>
         </Col>

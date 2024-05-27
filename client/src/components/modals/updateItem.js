@@ -15,7 +15,7 @@ const UpdateItem = observer(({show, onHide}) => {
 
     useEffect(() => {
         fetchTypes().then(data => item.setTypes(data))
-        fetchItems(null, null, null, null).then(data => {
+        fetchItems(null, null, 90, 90).then(data => {
               item.setItems(data.rows)
               item.setTotalCount(data.count)
         })
@@ -32,8 +32,10 @@ const UpdateItem = observer(({show, onHide}) => {
         formData.append('price', `${price}`)
         formData.append('img', file)
         formData.append('typeId', item.selectedType.id)
-        updateItem(item.selectedItem.id, formData).then(data => onHide())
-        window.location.reload()
+        updateItem(item.selectedItem.id, formData).then(data => {
+            onHide()
+            window.location.reload()
+        })
     }
 
     return (
@@ -42,7 +44,7 @@ const UpdateItem = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Оновити позицію
                 </Modal.Title>
@@ -104,8 +106,18 @@ const UpdateItem = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={addItem}>Оновити</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={addItem}
+                >
+                    Оновити
+                </Button>
             </Modal.Footer>
         </Modal>
     );

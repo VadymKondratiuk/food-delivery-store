@@ -8,11 +8,6 @@ import Row from 'react-bootstrap/Row'
 const ItemBasketList = observer(() => {
     const {item} = useContext(Context)
     return (
-        // <div>
-        //     {item.basket_items.map(basket_item => 
-        //         <ItemBasket key={basket_item.id} basket_item={basket_item}/>
-        //     )}
-        // </div>
         <Row className='d-flex justify-content-center'>
             {item.basket_items.map(basket_item => 
                 <ItemBasket key={basket_item.id} basket_item={basket_item}/>

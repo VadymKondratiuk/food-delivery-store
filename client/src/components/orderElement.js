@@ -7,7 +7,13 @@ import { Col } from 'react-bootstrap';
 
 const OrderElement = ({order}) => {
     const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        };
         const date = new Date(dateString);
         return date.toLocaleDateString('uk-UA', options);
     }
@@ -39,7 +45,8 @@ const OrderElement = ({order}) => {
                 <div>ID користувача: {order.userId}</div>
                 <div>Адреса замовлення: {order.address}</div>
                 <div>Статус: {order.status}</div>
-                <OrderItemList order = {order}/>  
+                <OrderItemList order = {order}/> 
+                 
                 {order.status === "НОВЕ" ?
                     <Button 
                         variant="outline-success" 

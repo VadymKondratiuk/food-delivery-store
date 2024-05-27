@@ -18,6 +18,7 @@ const TypeBar = observer(() => {
                     active={type.id === item.selectedType.id}
                     onClick={() => {
                         item.setSelectedType(type)
+                        item.setPage(1)
                         navigate(TYPE_ROUTE + '/' + type.id)
                     }} 
                     key={type.id}

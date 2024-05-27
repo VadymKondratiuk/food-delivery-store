@@ -20,10 +20,9 @@ const DeleteItem = observer(({show, onHide}) => {
             deleteItem(item.selectedItem.id).then(data => {
                 item.setSelectedItem({}); 
                 onHide(); 
+                window.location.reload()
             });
         }
-        window.location.reload()
-
     }
 
     return (
@@ -32,7 +31,7 @@ const DeleteItem = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Видалити позицію
                 </Modal.Title>
@@ -55,8 +54,18 @@ const DeleteItem = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={removeItem}>Видалити</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={removeItem}
+                >
+                    Видалити
+                </Button>
             </Modal.Footer>
         </Modal>
     );

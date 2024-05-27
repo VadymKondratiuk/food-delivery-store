@@ -25,7 +25,11 @@ const ItemBasket = ({basket_item}) => {
                     height={150} 
                     src={process.env.REACT_APP_API_URL + basket_item.img}
                 />
-                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <div 
+                style={{
+                    display: 'flex', 
+                    justifyContent: 'space-between'
+                }}>
                     <div>{basket_item.name}</div>
                     <div>{basket_item.price + 'грн'}</div>
                 </div>

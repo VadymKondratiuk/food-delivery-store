@@ -8,7 +8,6 @@ import { jwtDecode } from 'jwt-decode';
 
 const AddOrder = observer(({show, onHide}) => {
     const { item } = useContext(Context)
-    
     const [address, setAddress] = useState('')
 
     const addOrder = () => {
@@ -21,8 +20,8 @@ const AddOrder = observer(({show, onHide}) => {
 
         createOrder(order).then(data => {
             onHide()
+            window.location.reload()
         })
-        window.location.reload()
     }
 
     return (
@@ -31,7 +30,7 @@ const AddOrder = observer(({show, onHide}) => {
             onHide={onHide}
             centered
         >   
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Оформлення замовлення
                 </Modal.Title>
@@ -47,8 +46,18 @@ const AddOrder = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрити</Button>
-                <Button variant="outline-success" onClick={addOrder}>Замовити</Button>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={onHide}
+                >
+                    Закрити
+                </Button>
+                <Button 
+                    variant="outline-success" 
+                    onClick={addOrder}
+                >
+                    Замовити
+                </Button>
             </Modal.Footer>
         </Modal>
     );
