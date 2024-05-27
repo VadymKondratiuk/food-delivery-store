@@ -13,7 +13,7 @@ class TypeController {
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
     
             const type = await Type.create({name, img: fileName})
-    
+            console.log('1')
             return res.json(type)
         }
         catch(err) {
